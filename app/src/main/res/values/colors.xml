@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- 品牌色 brand -->
+    <color name="brand_primary">#1DBEDC</color>
+    <color name="brand_primary_light">#20C1DF</color>
+    <color name="brand_primary_accent">#0DC0E1</color>
+    <color name="brand_primary_dark">#07B1D1</color>
+    <color name="brand_secondary">#FF6688</color>
+
+    <!-- 功能色 action-->
+    <color name="action_link">#4972b8</color> <!-- 超链接 -->
+    <color name="action_warn">#ffbe26</color> <!-- 警告 -->
+    <color name="action_success">#05c260</color> <!-- 成功 -->
+    <color name="action_warning">#ff4b4b</color> <!-- 失败、错误 -->
+    <color name="action_notice">#F74C31</color> <!-- 角标、提示 -->
+    <color name="action_press_active_bg">#f6f3f3</color>    <!-- 按压反馈背景 -->
+
+    <!-- font 文字颜色 -->
+    <color name="font_master">#333333</color>  <!-- 导航类重要文字，用于替代纯黑，纯黑太黑了 -->
+    <color name="font_common">#505050</color>  <!-- 标题、普通段落标题 -->
+    <color name="font_content">#6E6D6D</color> <!-- 一般正文字体，眼睛看得比较舒服的颜色 -->
+    <color name="font_assist">#999999</color>  <!-- 次要文字信息 -->
+    <color name="font_tips">#bfbfbf</color> <!--  辅助文字、提示语信息 -->
+    <color name="font_invalid">#cccccc</color> <!-- 失效信息 -->
+
+    <!-- 背景色 bg -->
+    <color name="bg_separator">#ebebeb</color> <!-- 分割线 -->
+    <color name="bg_local">#f5f6fa</color> <!-- 局部背景、分隔块 -->
+    <color name="bg_global">#ffffff</color> <!-- 全局背景色 -->
+
+    <color name="white">#ffffff</color>
+    <color name="white_eye_care">#efe</color>     <!-- 用来替代白色字体（护眼）-->
+
+    <!-- 其他颜色 -->
+    <color name="chatting_bottom_bg">#E8EAF4</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="full_screen_play_btn">#AAA8A8</color>
+
+</resources>

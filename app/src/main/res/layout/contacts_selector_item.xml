@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatar"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/imageCircle"
+        app:strokeColor="#fff"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:textColor="@color/font_common"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radio"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        tools:text="昵称昵称"
+        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" />
+
+    <RadioButton
+        android:id="@+id/radio"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:buttonTint="@color/radio_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:visibility="gone"
+        android:id="@+id/radioDisabled"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:enabled="false"
+        android:checked="true"
+        android:buttonTint="@color/radio_button_selected_disabled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/cpt_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

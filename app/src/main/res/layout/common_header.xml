@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg_global"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/common_header_back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_gravity="center|left"
+                android:src="@drawable/back"
+                android:layout_width="26dp"
+                android:layout_height="26dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="16sp"
+        tools:text="title"
+        android:textColor="@color/font_master"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+<!--    <LinearLayout-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/header"-->
+<!--        android:background="@drawable/bg_bottom_shadow"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="2dp" />-->
+
+    <Button
+        android:id="@+id/rightSaveBtn"
+        android:visibility="gone"
+        style="@style/btn_in_header_right"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="start"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="@string/save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!-- res/drawable/textview_text_color_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 正常状态文字颜色 -->
+    <item android:state_pressed="false" android:color="@color/font_master" />
+    <!-- 按住时文字颜色 -->
+    <item android:state_pressed="true" android:color="@color/font_assist" />
+</selector>
+
+    <!-- 注意要给 TextView 加 android:clickable="true" 才生效 -->
+    <!-- 示例：-->
+    <!--<TextView-->
+    <!--    android:clickable="true"-->
+    <!--    android:textColor="@color/hyperlink_master"-->
+    <!-- />-->

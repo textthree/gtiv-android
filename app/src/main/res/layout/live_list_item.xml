@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    tools:context=".page.live.LiveFragment">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/cover"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderImage="@drawable/live_no_streaming"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundedCornerRadius="2dp" />
+
+    <!-- 直播状态、标题 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="@+id/cover"
+        app:layout_constraintEnd_toEndOf="@+id/cover"
+        app:layout_constraintTop_toTopOf="@+id/cover"
+        android:background="@drawable/bg_live_listitem_top">
+
+        <!-- 直播中 -->
+        <TextView
+            android:id="@+id/state1"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:background="@drawable/bg_live_listitem_state2"
+            android:text="@string/streaming"
+            android:textColor="@color/white_eye_care"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@+id/cover"
+            app:layout_constraintTop_toTopOf="@+id/cover" />
+
+        <!-- 未开播 -->
+        <TextView
+            android:id="@+id/state0"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:background="@drawable/bg_live_listitem_state1"
+            android:text="@string/none_live"
+            android:textColor="#EFECEC"
+            android:paddingHorizontal="6dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@+id/cover"
+            app:layout_constraintTop_toTopOf="@+id/cover" />
+
+        <!-- 标题 -->
+        <TextView
+            android:id="@+id/live_room_title"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="标题标题标题标题标题标题标题标题"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="#EFECEC"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/cover"
+            app:layout_constraintTop_toTopOf="@+id/cover" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/playIcon"
+        android:visibility="gone"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_live_list_item_play"
+        android:paddingVertical="10dp"
+        android:paddingLeft="8dp"
+        android:src="@drawable/play_solid_white"
+        app:layout_constraintBottom_toBottomOf="@+id/cover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cover" />
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar"
+        app:roundAsCircle="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        app:placeholderImage="@drawable/default_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        tools:text="nickname"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <TextView
+        android:id="@+id/follow"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/follow_plus"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_live_list_item_follow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+    <TextView
+        android:id="@+id/unfollow"
+        android:visibility="gone"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/unfollow"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_live_list_item_followed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cover" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

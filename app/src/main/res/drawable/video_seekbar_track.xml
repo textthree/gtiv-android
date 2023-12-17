@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 轨道未播放部分的颜色 -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#4D808080" />
+        </shape>
+    </item>
+
+    <!-- 轨道已播放部分的颜色 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="#4D2ED1EF" />
+            </shape>
+        </clip>
+    </item>
+
+<!--    <item android:id="@android:id/secondaryProgress">-->
+<!--        <clip>-->
+<!--            <shape>-->
+<!--                <solid android:color="#FFFFFFFF" />-->
+<!--            </shape>-->
+<!--        </clip>-->
+<!--    </item>-->
+
+
+</layer-list>

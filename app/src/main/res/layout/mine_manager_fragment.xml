@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg_local">
+
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/common_header" />
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_global"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <LinearLayout
+            android:id="@+id/avatarBox"
+            android:orientation="horizontal"
+            android:gravity="left|center"
+            android:background="@drawable/border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/avatar"
+                android:gravity="left|center"
+                android:textColor="@color/font_common"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/avatarImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:roundAsCircle="true"
+                    app:roundingBorderColor="@color/white"
+                    app:roundingBorderWidth="2dp"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@drawable/default_avatar" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 昵称 -->
+        <LinearLayout
+            android:id="@+id/nick"
+            android:orientation="horizontal"
+            android:gravity="left|center"
+            android:background="@drawable/border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/nickname"
+                android:gravity="left|center"
+                android:textColor="@color/font_common"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/nickname"
+                    tools:text="nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="26dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/arrow_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 语言 -->
+        <LinearLayout
+            android:id="@+id/language"
+            android:orientation="horizontal"
+            android:gravity="left|center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/language"
+                android:gravity="left|center"
+                android:textColor="@color/font_common"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="26dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/arrow_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/logout"
+        android:text="@string/exit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top"
+        android:layout_marginTop="30dp"
+        android:background="@color/bg_global"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/action_warning"
+        android:layout_width="0dp"
+        android:layout_height="60dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

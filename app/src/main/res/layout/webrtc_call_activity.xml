@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.dqd2022.page.webrtc.CallViewModel" />
+
+        <variable
+            name="callModel"
+            type="CallViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".page.webrtc.CallActivity">
+
+        <ImageView
+            android:id="@+id/webrtc_call_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 视频采集输出 - 小窗口 -->
+        <org.webrtc.SurfaceViewRenderer
+            android:visibility="gone"
+            android:id="@+id/video_call_surface_small"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:layout_gravity="top|end"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp" />
+
+        <!-- 视频采集输出 - 大窗口 -->
+        <org.webrtc.SurfaceViewRenderer
+            android:visibility="gone"
+            android:id="@+id/video_call_surface_big"
+            android:background="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/webrtc_call_avatar"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_avatar"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center|top"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/webrtc_call_tips"
+            android:layout_marginTop="180dp"
+            android:textSize="14sp"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="1dp"
+            android:background="@drawable/bg_call_nickname"
+            android:layout_gravity="top|center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{callModel.nickname}"
+            tools:ignore="MissingConstraints" />
+
+        <!-- 拨打方：挂断 -->
+        <ImageView
+            android:id="@+id/webrtc_call_hangup"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            android:src="@drawable/call_refuse"
+            android:layout_marginBottom="80dp"
+            android:layout_gravity="center|bottom"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:gravity="center"
+            android:layout_gravity="bottom">
+
+            <!-- 接听方：挂断 -->
+            <ImageView
+                android:id="@+id/webrtc_answer_hangup"
+                android:visibility="gone"
+                android:scaleType="centerCrop"
+                android:src="@drawable/call_refuse"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <!-- 接听方：接听 -->
+            <ImageView
+                android:id="@+id/webrtc_answer"
+                android:visibility="gone"
+                android:layout_marginLeft="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/call_answer"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+
+    }
+}
+
+// https://webrtc.github.io/webrtc-org/native-code/android/
+// 官方提供的安卓使用 webrtc 的姿势，用 jcenter 是最简单的
+// 虽然 jcenter 废弃了，但是只读还是可以用的
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        jcenter()
+    }
+}
+rootProject.name = 'dqd2022'
+include ':app'
+

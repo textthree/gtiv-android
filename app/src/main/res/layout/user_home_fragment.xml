@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/user_home_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="none"
+        app:elevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:minHeight="80dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/top_background"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:srcCompat="@drawable/user_banner" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/avatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="100dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:roundAsCircle="true"
+                app:roundingBorderColor="@color/white"
+                app:roundingBorderWidth="2dp"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:placeholderImage="@drawable/default_avatar" />
+
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="24dp"
+                android:text="用户昵称"
+                android:textColor="#9A9898"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toTopOf="@+id/avatar" />
+
+            <TextView
+                android:id="@+id/user_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                tools:text="账号: 80803333"
+                android:textColor="#F3EEEE"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
+            <LinearLayout
+                android:id="@+id/info_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-16dp"
+                android:background="@drawable/bg_user_home_card"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:weightSum="3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/top_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- 获赞 -->
+                    <TextView
+                        android:id="@+id/support_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+                        android:textColor="@color/font_common"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/supports" />
+
+                    <!-- 关注 -->
+                    <TextView
+                        android:id="@+id/follow_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="100"
+                        android:textColor="@color/font_common"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/follow" />
+
+                    <!-- 粉丝 -->
+                    <TextView
+                        android:id="@+id/fans_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="304083"
+                        android:textColor="@color/font_common"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/fans" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/personal_intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    tools:text="这个人很懒，什么都没有留下。" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/follow_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_user_home_follow_btn"
+                        tools:text="@string/follow"
+                        android:textColor="@color/font_common"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <Button
+                        android:id="@+id/friend_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/bg_user_home_sendmsg_btn"
+                        tools:text="@string/add_friend"
+                        android:textColor="@color/white"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/tablayout_box"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:contentDescription="@string/Confirm"
+            app:tabIndicatorColor="@color/brand_primary"
+            app:tabMode="fixed"
+            app:tabRippleColor="@null"
+            app:tabTextColor="#000000" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/pin_header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:padding="4dp"
+            android:background="@drawable/bg_user_home_back"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/full_screen_back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

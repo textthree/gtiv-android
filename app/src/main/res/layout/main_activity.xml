@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/main_activity_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+        <!-- 闪屏页 view -->
+        <LinearLayout
+            android:id="@+id/splash_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/boot" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:visibility="gone"
+        android:id="@+id/nav_view"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@null"
+        app:itemRippleColor="@null"
+        app:itemTextColor="@color/bottom_menu_font"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu">
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/totalBadgeNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge"
+            android:paddingHorizontal="5dp"
+            android:layout_gravity="center|top"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#fff"
+            android:textSize="11sp" />
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</LinearLayout>

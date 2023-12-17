@@ -1,0 +1,258 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+/**
+ * 针对不同 CPU 构架生成不同包以减小安装包体积，一共打包出四个不同构架包
+ * https://developer.android.com/guide/app-bundle/
+ * http://text3.cn/blog-343333748.html#e1af0a
+ * https://www.react-native.cn/docs/signed-apk-android
+ * 优化编译速度，开发时仅构建一个平台的包：
+ * https://www.react-native.cn/docs/next/build-speed#clean-android-build-with---active-arch-only-is-failing
+ */
+def enableSeparateBuildPerCPUArchitecture = true
+
+
+android {
+
+    viewBinding {
+        enabled = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            //version '3.22.1'
+        }
+    }
+    ndkVersion rootProject.ext.ndkVersion
+
+    compileSdkVersion 33
+    namespace "com.dqd2022"
+    defaultConfig {
+        applicationId "com.dqd2022"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 12
+        versionName "0.1.2"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['jniLibs']
+        }
+    }
+
+
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk true  // If true, also generate a universal APK
+            include "arm64-v8a" // "armv7a", "armeabi-v7a" 只打包 arm64-v8a
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            if (project.hasProperty('RELEASE_STORE_FILE')) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD
+                keyAlias RELEASE_KEY_ALIAS
+                keyPassword RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+            //minifyEnabled true
+            //proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+
+    // 运行时配置
+    buildTypes {
+        // 运行时配置
+        def MMKV_ID = "gtivmkv"
+        def TURN_USER = "gtivuser"
+        def TURN_PASS = "gtivpass"
+        def TURN_PROT = ":2007"
+        def SIGNAL_PORT = ":2014"
+        def COMET_PORT = ":2004"
+        def VIDEOBIZ_PORT = ":2009"
+        def IMBIZ_PORT = ":2015"
+
+        def LOCAL = "192.168.1.200"
+        def ALPHA = project.hasProperty('alpha_ip') ? project.alpha_ip : ""
+
+        debug {
+            buildConfigField("String", "APP_NAME", '"GTIV"')
+            buildConfigField("String", "MMKV_ID", '"' + MMKV_ID + '"')
+            buildConfigField("String", "TURN_USER", '"' + TURN_USER + '"')
+            buildConfigField("String", "TURN_PASS", '"' + TURN_PASS + '"')
+
+            buildConfigField("boolean", "DEBUG_MODE", "true")
+            buildConfigField("String", "STUN", '"stun:' + LOCAL + TURN_PROT + '"')
+            buildConfigField("String", "TURN", '"turn:' + LOCAL + TURN_PROT + '"')
+            buildConfigField("String", "SIGNAL_SERVER", '"http://' + LOCAL + SIGNAL_PORT + '"')
+            buildConfigField("String", "COMET_SERVER", '"' + LOCAL + COMET_PORT + '"')
+            buildConfigField("String", "IMBIZ_API", '"http://' + LOCAL + IMBIZ_PORT + '"')
+            buildConfigField("String", "VIDEO_API", '"http://' + LOCAL + VIDEOBIZ_PORT + '"')
+        }
+
+        release {
+            buildConfigField("String", "APP_NAME", '"GTIV"')
+            buildConfigField("String", "MMKV_ID", '"' + MMKV_ID + '"')
+            buildConfigField("String", "TURN_USER", '"' + TURN_USER + '"')
+            buildConfigField("String", "TURN_PASS", '"' + TURN_PASS + '"')
+
+            buildConfigField("boolean", "DEBUG_MODE", "false")
+            buildConfigField("String", "STUN", '"stun:' + ALPHA + TURN_PROT + '"')
+            buildConfigField("String", "TURN", '"turn:' + ALPHA + TURN_PROT + '"')
+            buildConfigField("String", "SIGNAL_SERVER", '"http://' + ALPHA + SIGNAL_PORT + '"')
+            buildConfigField("String", "COMET_SERVER", '"' + ALPHA + COMET_PORT + '"')
+            buildConfigField("String", "IMBIZ_API", '"http://' + ALPHA + IMBIZ_PORT + '"')
+            buildConfigField("String", "VIDEO_API", '"http://' + ALPHA + VIDEOBIZ_PORT + '"')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    // applicationVariants are e.g. debug, release
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            // For each separate APK per architecture, set a unique version code as described here:
+//            // https://developer.android.com/studio/build/configure-apk-splits.html
+//            // Example: versionCode 1 will generate 1001 for armeabi-v7a, 1002 for x86, etc.
+//            def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
+//            def abi = output.getFilter(OutputFile.ABI)
+//            if (abi != null) {  // null for the universal-debug, universal-release variants
+//                output.versionCodeOverride =
+//                        defaultConfig.versionCode * 1000 + versionCodes.get(abi)
+//            }
+//
+//        }
+//    }
+
+}
+
+
+dependencies {
+    ////////////////////////////// android  //////////////////////////////
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.navigation:navigation-fragment:2.6.0'
+    implementation 'androidx.navigation:navigation-ui:2.6.0'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.20"))
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    // kotlin 支持
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
+
+    ////////////////////////////// 业务依赖  ///////////////////////////////
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "com.android.support:recyclerview-v7"
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    implementation 'com.alibaba:fastjson:1.1.72.android'
+
+    // https://github.com/LuckSiege/PictureSelector glide 为配套图片加载引擎
+    implementation 'io.github.lucksiege:pictureselector:v3.11.1'
+    // https://github.com/bumptech/glide/tree/v4.15.1
+    implementation "com.github.bumptech.glide:glide:4.15.1"
+    // https://github.com/wasabeef/glide-transformations
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    // https://github.com/facebook/fresco 不兼容的 fresco:3.0.0 版本
+    implementation 'com.facebook.fresco:fresco:2.6.0'
+
+    // https://github.com/googlesamples/easypermissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    // https://www.javadoc.io/doc/org.webrtc/google-webrtc/latest/index.html
+    implementation 'org.webrtc:google-webrtc:1.0.32006'
+
+    // golang 不支持 2.0.0 的客户端
+    implementation('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    // https://github.com/Tencent/MMKV
+    implementation 'com.tencent:mmkv:1.3.0'
+
+    // https://square.github.io/retrofit/
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    // openapi generator
+    implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
+    implementation "com.squareup.moshi:moshi-adapters:1.14.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.0"
+
+    // https://github.com/square/okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    //implementation group: 'commons-io', name: 'commons-io', version: '2.13.0'
+
+    // https://github.com/xuuhaoo/Android-DefenseCrash
+    implementation 'com.github.xuuhaoo:Android-DefenseCrash:4.0.3'
+    implementation 'androidx.annotation:annotation:1.6.0'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.5'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
+
+    // qiniu: https://developer.qiniu.com/kodo/1236/android
+    implementation 'com.qiniu:qiniu-android-sdk:8.7.+'
+    implementation('com.qiniu:qiniu-android-sdk:8.7.+') {
+        exclude(group: 'com.squareup.okhttp3', module: 'okhttp')
+    }
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+
+    // https://github.com/guolindev/LitePal
+    //implementation 'org.litepal.guolindev:core:3.2.3'
+
+    // https://github.com/mcxtzhang/SwipeDelMenuLayout/blob/master/README-cn.md
+    // 这个库作者 2016 年后就不更新了，文档上 v1.3.0 版本因 jcenter 下线已经用不了
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.1'
+
+    // https://github.com/greenrobot/EventBus
+    implementation 'org.greenrobot:eventbus:3.3.1'
+
+}
+
+
+
+

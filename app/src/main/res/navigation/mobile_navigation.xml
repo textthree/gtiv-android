@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation">
+
+    <fragment
+        android:id="@+id/bottom_menu_video"
+        android:name="com.dqd2022.page.video.HomeFragment"
+        android:label="@string/bottom_menu_video"
+        tools:layout="@layout/video_home_fragment" />
+
+    <fragment
+        android:id="@+id/bottom_menu_live"
+        android:name="com.dqd2022.page.live.LiveFragment"
+        android:label="@string/bottom_menu_friend"
+        tools:layout="@layout/live_list_fragment" />
+
+    <fragment
+        android:id="@+id/bottom_menu_message"
+        android:label="@string/bottom_menu_message"
+        tools:layout="@layout/bottom_menu_message_fragment" />
+
+    <fragment
+        android:id="@+id/bottom_menu_mine"
+        android:label="@string/bottom_menu_mine"
+        tools:layout="@layout/bottom_menu_mine_fragment" />
+</navigation>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/top_background"
+        android:layout_width="0dp"
+        android:layout_height="260dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:src="@drawable/mine_banner" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="81dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundAsCircle="true"
+        app:roundingBorderColor="@color/white"
+        app:roundingBorderWidth="2dp"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@drawable/default_avatar" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        tools:text="用户昵称" />
+
+    <TextView
+        android:id="@+id/user_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="用户 ID: 80803333"
+        android:textColor="#F3EEEE"
+        app:layout_constraintStart_toStartOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
+    <!-- 获赞 -->
+    <LinearLayout
+        android:id="@+id/support"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:layout_marginRight="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/support_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supports" />
+
+    </LinearLayout>
+
+    <!-- 关注 -->
+    <LinearLayout
+        android:id="@+id/follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/support">
+
+        <TextView
+            android:id="@+id/followNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/follow" />
+
+    </LinearLayout>
+
+    <!-- 粉丝 -->
+    <LinearLayout
+        android:id="@+id/fans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:layout_marginRight="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/follow">
+
+        <TextView
+            android:id="@+id/fans_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fans" />
+
+    </LinearLayout>
+
+    <!-- 成为主播 -->
+    <TextView
+        android:id="@+id/anchor"
+        android:layout_marginTop="18dp"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/apply_anchor"
+        android:background="@drawable/bg_mine_top_button"
+        app:layout_constraintEnd_toStartOf="@+id/manager"
+        app:layout_constraintTop_toBottomOf="@id/fans" />
+
+    <!-- 账号管理 -->
+    <TextView
+        android:id="@+id/manager"
+        android:layout_marginTop="18dp"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/account_manager"
+        android:background="@drawable/bg_mine_top_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fans" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-16dp"
+        android:background="@drawable/bg_user_home_card"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_background"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/myRelease"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="left|center"
+            android:background="@drawable/border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/my_release"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:text="@string/my_release"
+                android:gravity="left|center"
+                android:textColor="@color/font_common"
+                android:textSize="18sp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="26dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/arrow_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myCollect"
+            android:orientation="horizontal"
+            android:gravity="left|center"
+            android:background="@drawable/border_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/my_collect"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:text="@string/my_collection"
+                android:gravity="left|center"
+                android:textColor="@color/font_common"
+                android:textSize="18sp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="26dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/arrow_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="651dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

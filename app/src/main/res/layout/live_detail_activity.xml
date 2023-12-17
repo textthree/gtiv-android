@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".page.live.LiveDetailActivity">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="4dp"
+            android:background="@drawable/bg_user_home_back"
+            android:src="@drawable/full_screen_back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+    <!-- 视频加载中 -->
+    <TextView
+        android:id="@+id/video_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/video_loading"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView"
+        app:layout_constraintEnd_toEndOf="@+id/surfaceView"
+        app:layout_constraintBottom_toBottomOf="@+id/surfaceView" />
+
+    <TextView
+        android:id="@+id/live_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每天下午两点到晚上十二点直播，喜欢的朋友关注主播爱你哟~"
+        android:textColor="@color/font_common"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="4dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surfaceView" />
+
+    <!-- 头像 -->
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/live_detail_title"
+        app:placeholderImage="@drawable/default_avatar"
+        app:roundAsCircle="true" />
+
+    <!-- 昵称 -->
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:text="xxxxxx"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/live_detail_title" />
+
+    <!-- 关注 -->
+    <TextView
+        android:id="@+id/follow"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/follow_plus"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_live_list_item_follow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/live_detail_title" />
+
+    <!-- 取关 -->
+    <TextView
+        android:id="@+id/unfollow"
+        android:visibility="gone"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/follow_plus"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_live_list_item_followed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/live_detail_title" />
+
+    <LinearLayout
+        android:id="@+id/game"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:background="#ECE8E9"
+        app:layout_constraintTop_toBottomOf="@+id/avatar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/brand_secondary"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打赏榜" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="TOP4 上榜可与主播连线" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="4"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:background="#E3DDDD"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Top 1" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:background="#E3DDDD"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Top 2" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:background="#E3DDDD"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Top 3" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:background="#E3DDDD"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Top 4" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:text="聊天室区域\n"
+        android:textStyle="italic"
+        android:textColor="#B3AFAF"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#E8F1DE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

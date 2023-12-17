@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_recive_call"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/call_on_locked"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/overlay_window_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:gravity="center"
+        android:text="@string/call_overlay_window_tips"
+        android:textColor="#28D375"
+        android:textFontWeight="500"
+        android:textSize="20sp" />
+
+</LinearLayout>

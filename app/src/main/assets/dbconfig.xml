@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!--
+    	Define the database name of your application.
+    	By default each database name should be end with .db.
+    	If you didn't name your database end with .db,
+    	LitePal would plus the suffix automatically for you.
+    	For example:
+    	<dbname value="demo" />
+    -->
+    <dbname value="gtiv" />
+
+    <!-- 表结构变化时来修改版本号 +1，下次操作数据库时会自动迁移表结构 -->
+    <!--    对于以下操作会清空数据：-->
+    <!--    Add a field which annotated as unique = true.-->
+    <!--    Change a field's annotation into unique = true.-->
+    <!--    Change a field's annotation into nullable = false.-->
+    <version value="31" />
+
+    <!--
+    	Define your models in the list with mapping tag, LitePal will
+    	create tables for each mapping class. The supported fields
+    	defined in models will be mapped into columns.
+    	For example:
+    	<list>
+    		<mapping class="com.test.model.Reader" />
+    		<mapping class="com.test.model.Magazine" />
+    	</list>
+    -->
+    <list>
+        <mapping class="com.dqd2022.storage.entity.RoomMemberEntity" />
+        <mapping class="com.dqd2022.storage.entity.ChatlistEntity" />
+        <mapping class="com.dqd2022.storage.entity.RoomMessageEntity" />
+        <mapping class="com.dqd2022.storage.entity.UserMessageEntity" />
+        <mapping class="com.dqd2022.storage.entity.ContactsEntity" />
+    </list>
+
+    <!-- 数据库自动迁移完成后调用此类的构造方法，可以在这里面做一些 litapal 迁移不支持的操作 -->
+    <afterUpgrade class="com.dqd2022.storage.AfterUpgrade" />
+
+    <!--
+        Define where the .db file should be. "internal" means the .db file
+        will be stored in the database folder of internal storage which no
+        one can access. "external" means the .db file will be stored in the
+        path to the directory on the primary external storage device where
+        the application can place persistent files it owns which everyone
+        can access. "internal" will act as default.
+        For example:
+        <storage value="external" />
+    -->
+
+</litepal>

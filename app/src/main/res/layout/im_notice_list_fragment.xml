@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_local"
+    tools:context=".page.login.LoginFragment">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/common_header" />
+
+    <TextView
+        android:id="@+id/titleCount"
+        android:textSize="16sp"
+        tools:text="@string/message_setting"
+        android:textColor="@color/font_master"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <!-- 锁屏来电 start -->
+    <LinearLayout
+        android:id="@+id/lockScreen"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:background="@color/bg_global"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <TextView
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="@string/lockScreenCall"
+            android:layout_width="match_parent"
+            android:textColor="@color/font_master"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/lockScreenCallSwitch"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:height="60dp"
+            android:fontFamily="sans-serif-black"
+            app:thumbTint="@color/switch_block_selector"
+            app:trackTint="@color/switch_track_selector"
+            android:textOff="去开启" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lockScreenRemindText"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lockScreen"
+        android:layout_width="0dp"
+        android:text="@string/lockScreenCallRemind"
+        android:layout_height="wrap_content" />
+    <!-- 锁屏来电 end -->
+
+    <!-- 电池优化 start -->
+    <LinearLayout
+        android:id="@+id/batteryLayout"
+        android:paddingHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:background="@color/bg_global"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lockScreenRemindText">
+
+        <TextView
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="@string/batteryOptimization"
+            android:layout_width="match_parent"
+            android:textColor="@color/font_master"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/batterySwitch"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:height="60dp"
+            android:fontFamily="sans-serif-black"
+            app:thumbTint="@color/switch_block_selector"
+            app:trackTint="@color/switch_track_selector"
+            android:textOff="去开启" />
+
+    </LinearLayout>
+
+    <TextView
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/batteryLayout"
+        android:layout_width="0dp"
+        android:text="@string/batteryOptimizationRemind"
+        android:layout_height="wrap_content" />
+    <!-- 电池优化 end -->
+
+    <!--  没有开启悬浮权限的就一直在 setting 那里给个角标 -->
+    <!--  检查悬浮窗权限  RnBridge.checkOverlayPermission();-->
+    <!--  保持活跃，以便及时接收重要好友的消息-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

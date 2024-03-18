@@ -106,7 +106,7 @@ android {
         def VIDEOBIZ_PORT = ":2009"
         def IMBIZ_PORT = ":2015"
 
-        def LOCAL = "192.168.1.200"
+        def LOCAL = "120.79.181.69"
         def ALPHA = project.hasProperty('alpha_ip') ? project.alpha_ip : ""
 
         debug {

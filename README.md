@@ -87,6 +87,23 @@ API().User.userInfoGet("33").enqueue(object : Callback<T3imapiv1UserinfoRes?> {
     }
 })
 ```
+
+### App 截图
+
+<style>
+  img{border:1px solid #e8e6e6}
+</style>
+<img src="http://gtiv.text3.cn/github/1.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/2.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/3.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/4.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/5.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/6.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/7.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/8.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/9.jpg" width="240" >
+<img src="http://gtiv.text3.cn/github/10.jpg" width="240" >
+
 ### 作者本地环境
 
 - MacOS 12.3.1
@@ -102,4 +119,3 @@ cpu 构架需自行编译相关 jniLibs
 
 此项目属于个人开源作品，仅做学习交流使用，因为个人精力有限，并未做大量测试。
 如果您需要将其作为商业用途，需考虑此项目可能存在的 Bug，以及相关第三方开源库的开源许可证条款。
-
